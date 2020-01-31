@@ -9,8 +9,12 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 @Repository
 public interface NewRepository extends JpaRepository<NewEntity, Long> {
 	@Query("select p from NewEntity p where p.id= :id")
     NewEntity findById(@Param("id")long id);
+	@Query("select p from NewEntity p where p.category.id=:categoryid ")
+    List<NewEntity> findByCategory(@Param("categoryid")long id);
+
 }

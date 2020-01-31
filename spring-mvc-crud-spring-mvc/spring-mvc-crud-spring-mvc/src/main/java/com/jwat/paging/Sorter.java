@@ -10,6 +10,8 @@ public class Sorter {
 		this.sortBy = sortBy;
 	}
 
+	
+
 	public String getSortName() {
 		return sortName;
 	}

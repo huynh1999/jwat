@@ -61,11 +61,11 @@
                             <div class="classynav">
                                 <ul>
                                     <li class="active"><a href="home">Trang Chủ</a></li>
-                                    <li><a href="#">Thể Thao</a></li>
-                                    <li><a href="#">Công Nghệ</a></li>
-                                    <li><a href="#">Giải Trí</a></li>
-                                    <li><a href="#">Pháp Luật</a></li>
-                                    <li><a href="#">Giáo Dục</a></li>
+                                    <li><a href="<c:url value="/danh-muc/0"/>">Thể Thao</a></li>
+                                    <li><a href="<c:url value="/danh-muc/1"/>">Công Nghệ</a></li>
+                                    <li><a href="<c:url value="/danh-muc/2"/>">Giải Trí</a></li>
+                                    <li><a href="<c:url value="/danh-muc/0"/>">Pháp Luật</a></li>
+                                    <li><a href="<c:url value="/danh-muc/0"/>">Giáo Dục</a></li>
                                     <li><a href="about">Về Chúng Tôi</a></li>
                                 </ul>
                             </div>

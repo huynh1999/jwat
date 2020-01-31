@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jwat.dto.NewDTO;
-import com.jwat.service.ICategoryService;
+
+
 import com.jwat.service.INewService;
 import com.jwat.util.MessageUtil;
 
@@ -25,8 +26,7 @@ public class NewController {
 	@Autowired
 	private INewService newService;
 	
-	@Autowired
-	private ICategoryService categoryService;
+
 	
 	@Autowired
 	private MessageUtil messageUtil;
@@ -74,6 +74,7 @@ public class NewController {
 		NewDTO model = new NewDTO();
 		model.setPage(1);
 		model.setLimit(21);
+		model.setSortBy("desc");
 		ModelAndView mav = new ModelAndView("web/list");
 		Pageable pageable = new PageRequest(1 - 1, 21);
 		model.setListResult(newService.findAll(pageable));
@@ -96,4 +97,25 @@ public class NewController {
 		mav.addObject("model", model);
 		return mav;
 	}
+	@RequestMapping("/danh-muc/{id}")
+	public ModelAndView showCategory(@PathVariable("id")int id,HttpServletRequest request)
+	{
+		NewDTO model = new NewDTO();
+		model.setPage(1);
+		model.setLimit(21);
+		model.setSortBy("desc");
+		ModelAndView mav = new ModelAndView("web/list");
+		model.setListResult(newService.findBycategoryid(id));
+		model.setTotalItem(newService.getTotalItem());
+		model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getLimit()));
+		if (request.getParameter("message") != null) {
+			Map<String, String> message = messageUtil.getMessage(request.getParameter("message"));
+			mav.addObject("message", message.get("message"));
+			mav.addObject("alert", message.get("alert"));
+		}
+		mav.addObject("model", model);
+		return mav;
+	}
+
+	
 }

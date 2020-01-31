@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "news")
 public class NewEntity extends BaseEntity {
 	
+	
 	@Column(name = "title")
 	private String title;
 	

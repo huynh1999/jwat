@@ -12,4 +12,6 @@ public interface INewService {
 	NewDTO findById(long id);
 	NewDTO save(NewDTO dto);
 	void delete(long[] ids);
+	List<NewDTO> findBycategoryid(long categoryid);
+	
 }

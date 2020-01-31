@@ -49,6 +49,18 @@ public class NewService implements INewService {
 		NewEntity entity = newRepository.findById(id);
 		return newConverter.toDto(entity);
 	}
+	@Override
+	public List<NewDTO> findBycategoryid(long categoryid) {
+		List<NewEntity> entity = newRepository.findByCategory( categoryid);
+		List<NewDTO> models = new ArrayList<>();
+		for (NewEntity item: entity) {
+			NewDTO newDTO = newConverter.toDto(item);
+			models.add(newDTO);
+		}
+		return models;
+	}
+	
+	
 	
 	@Override
 	@Transactional
